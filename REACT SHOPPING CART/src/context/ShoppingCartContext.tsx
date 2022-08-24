@@ -13,8 +13,8 @@ openCart:()=> void
 closeCart:()=>void
  
    getItemQuantity:(id:number)=>number
-   increaseCarQuantity:(id:number)=>void
-   decreaseCarQuantity:(id:number)=> void
+   increaseCartQuantity:(id:number)=>void
+   decreaseCartQuantity:(id:number)=> void
    removeFromCart:(id:number)=>void
    cartQuantity:number
 cartItems:CartItem[]
@@ -43,7 +43,7 @@ const closeCart=()=>setIsOpen(false)
 function getItemQuantity(id:number){
    return cartItems.find(item=>item.id===id)?.quantity || 0
 }
-function increaseCarQuantity (id:number){
+function increaseCartQuantity (id:number){
    setCartItems(currItems=>{
        if (currItems.find(item=>item.id===id)==null){
            return [...currItems,{id,quantity:1}]
@@ -59,7 +59,7 @@ function increaseCarQuantity (id:number){
    })
 }
  
-function decreaseCarQuantity (id:number){
+function decreaseCartQuantity (id:number){
    setCartItems(currItems=>{
        if (currItems.find(item=>item.id===id)?.quantity===1){
            return currItems.filter(item=>item.id !==id)
@@ -82,13 +82,13 @@ function removeFromCart(id:number){
  
    return (
        <ShoopingCartContext.Provider value={{getItemQuantity,
-       increaseCarQuantity,
-        decreaseCarQuantity,
+       increaseCartQuantity,
+        decreaseCartQuantity,
          removeFromCart, cartItems, cartQuantity,
          openCart,
          closeCart}}>
        {children}
-       <ShoopingCart />
+      
        </ShoopingCartContext.Provider>
    )
  
