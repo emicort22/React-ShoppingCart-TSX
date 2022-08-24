@@ -81,14 +81,15 @@ function removeFromCart(id:number){
 }
  
    return (
-       <ShoopingCartContext.Provider value={{getItemQuantity,
+       <ShoopingCartContext.Provider 
+       value={{getItemQuantity,
        increaseCartQuantity,
         decreaseCartQuantity,
          removeFromCart, cartItems, cartQuantity,
          openCart,
          closeCart}}>
        {children}
-      
+       <ShoopingCart isOpen={isOpen} />
        </ShoopingCartContext.Provider>
    )
  
