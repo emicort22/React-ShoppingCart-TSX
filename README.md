@@ -1,2 +1,2 @@
-website  https://emishoping.rj.r.appspot.com/
+ https://emishoping.rj.r.appspot.com/
 
